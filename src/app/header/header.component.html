@@ -1,0 +1,11 @@
+<header>
+    <ul>
+        <li>
+            USD:
+            {{ usdRate$ | async | currency : "UAH" : "symbol-narrow" }}
+        </li>
+        <li>
+            EUR: {{ eurRate$ | async | currency : "UAH" : "symbol-narrow" }}
+        </li>
+    </ul>
+</header>

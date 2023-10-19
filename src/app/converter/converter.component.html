@@ -1,0 +1,82 @@
+<main>
+    <div class="header">
+        <h2>Currency Converter</h2>
+    </div>
+    <div class="container">
+        <div class="converter-card-content">
+            <div class="converter-input">
+                <div class="form-group">
+                    <label id="fromAmount">Amount</label>
+                    <input
+                        type="text"
+                        id="fromAmount"
+                        name="amount"
+                        appOneDecimal
+                        [(ngModel)]="baseAmount"
+                        (input)="
+                            onChangeAmount(
+                                'baseAmount',
+                                currencyFirst.value,
+                                currencySecond.value
+                            )
+                        "
+                    />
+                    <div class="select">
+                        <select
+                            name="from"
+                            id="from"
+                            #currencyFirst
+                            (change)="
+                                onChangeAmount(
+                                    'targetAmount',
+                                    currencyFirst.value,
+                                    currencySecond.value
+                                )
+                            "
+                        >
+                            <option value="UAH">UAH</option>
+                            <option value="USD" selected>USD</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </div>
+                </div>
+                <span class="arrow">➡️</span>
+                <div class="form-group">
+                    <label id="toAmount">Converted</label>
+                    <input
+                        type="text"
+                        id="toAmount"
+                        name="to"
+                        appOneDecimal
+                        [(ngModel)]="targetAmount"
+                        (input)="
+                            onChangeAmount(
+                                'targetAmount',
+                                currencyFirst.value,
+                                currencySecond.value
+                            )
+                        "
+                    />
+                    <div class="select">
+                        <select
+                            name="to"
+                            id="to"
+                            #currencySecond
+                            (change)="
+                                onChangeAmount(
+                                    'baseAmount',
+                                    currencyFirst.value,
+                                    currencySecond.value
+                                )
+                            "
+                        >
+                            <option value="UAH" selected>UAH</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
